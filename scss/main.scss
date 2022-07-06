@@ -35,20 +35,20 @@ body {
 
   &.is-expanded {
     position: absolute;
-    top: 40px;
-    left: 40px;
+    bottom: 35px;
+    left: 35px;
     z-index: 3;
 
     margin-left: 0;
     padding-left: 30px;
 
     border-radius: 10px;
-    background-color: #00000080;
+    background-color: #000000a0;
     backdrop-filter: blur(4px);
 
     @media screen and (max-width: 767.98px) {
-      top: 20px;
-      left: 20px;
+      bottom: 15px;
+      left: 15px;
 
       border-radius: 20px;
 
@@ -141,6 +141,11 @@ body {
   width: 100%;
   padding-top: 15px;
   padding-bottom: 15px;
+
+  &.is-expanded {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 }
 
 .frame__proceed {
@@ -165,4 +170,35 @@ body {
   border-width: 0;
 
   cursor: pointer;
+
+  &::before {
+    content: "Expand document";
+  }
+
+  &.is-expanded {
+    position: absolute;
+    bottom: 35px;
+    right: 35px;
+    z-index: 3;
+
+    border-radius: 10px;
+    background-color: #000000a0;
+    backdrop-filter: blur(4px);
+
+    &::before {
+      content: "Collapse document";
+
+      font-weight: 700;
+      color: #f93b55;
+    }
+
+    @media screen and (max-width: 767.98px) {
+      bottom: 15px;
+      right: 15px;
+
+      border-radius: 20px;
+
+      transform: scale(0.5) translate(-50%, -50%);
+    }
+  }
 }
